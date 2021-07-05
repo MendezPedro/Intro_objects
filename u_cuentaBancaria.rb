@@ -53,7 +53,7 @@ class BankAccount
         "nuemro: #{self.numberAccount}, Banco #{self.bank}, dinero:  #{self.scores}"
     end
 end
-sum = 0
+
 account1= BankAccount.new("Chile", "12345676", 5000)
 account2= BankAccount.new("Estado", "35345676", 5000)
 user1 = User.new("Fulano",[account1, account2])
