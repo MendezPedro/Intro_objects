@@ -50,20 +50,18 @@ class Deck
     end
 
     def shuffles
-        @cards.shuffle
-        
+        @cards.shuffle!
     end
-
     def draw
-        puts "tu carta es"
-        self.shuffles.pop(1)
+        @cards.pop(1)
     end
-
     def deal
+        mano = []
         puts "tu mano es"
         5.times do
-            puts self.shuffles.pop(1)
+            mano.push(draw)
         end
+        return mano
     end
 end
 
