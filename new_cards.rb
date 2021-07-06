@@ -27,15 +27,54 @@ class Card
     end
 end
 
-class Deck < Card
 
+class Deck
+    attr_accessor :cards
+    def initialize
+        @cards = []
+        kinds = ["C", "D", "T", "E"]
+        
+        kinds.each do |kind|
+            13.times do |num|
+                num+=1
+                card = Card.new(num, kind)
+                @cards << card
+                # puts card
+            end
+        end
+    end
+
+    def show
+        puts cards
+
+    end
+
+    def shuffles
+        @cards.shuffle
+        
+    end
+
+    def draw
+        puts "tu carta es"
+        self.shuffles.pop(1)
+    end
+
+    def deal
+        puts "tu mano es"
+        5.times do
+            puts self.shuffles.pop(1)
+        end
+    end
 end
 
+baraja = Deck.new
 
-arr = []
-kinds = %w[C D E T]
-5.times do |i|
-    arr << Card.new(Random.rand(1..13), kinds.sample)
-end
+#muestra las cartas
+puts baraja.show
+# baraja las cartas
+puts baraja.shuffles
+#roba una carta
+puts baraja.draw
+#reparte 5 cartas
+puts baraja.deal
 
-puts arr
